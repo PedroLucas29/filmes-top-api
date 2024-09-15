@@ -4,11 +4,13 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-flask = "*"
-sqlalchemy = "*"
 flask-migrate = "*"
 asyncpg = "*"
 python-dotenv = "*"
+flask = {extras = ["async"], version = "*"}
+flask-caching = "*"
+redis = "*"
+sqlalchemy = {extras = ["asyncio"], version = "*"}
 
 [dev-packages]
 
