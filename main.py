@@ -6,7 +6,10 @@ from os import getenv
 from dotenv import load_dotenv
 from controllers import filmes_controller
 from cache.cache_client import init_cache
-
+import asyncio
+import logging
+logging.basicConfig()
+logging.getLogger('sqlalchemy.engine').setLevel(logging.INFO)
 
 load_dotenv()
 

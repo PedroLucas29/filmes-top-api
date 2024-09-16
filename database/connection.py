@@ -10,19 +10,18 @@ DATABASE_URL = getenv('DATABASE_URL')
 print("DATABASE_URL: ", DATABASE_URL)
 
 # Cria o engine assíncrono
-engine = create_async_engine(DATABASE_URL, future=True, echo=True)
+
 
 # Cria a fábrica de sessões assíncronas
 
 # Retorna uma nova sessão assíncrona
 
-async_session = sessionmaker(
-    engine, class_=AsyncSession, expire_on_commit=False
-)
-
 
 def get_async_session():
-    return async_session
+    engine = create_async_engine(DATABASE_URL, echo=True)
+    return sessionmaker(
+        engine, class_=AsyncSession
+    )
 
 
 # from os import getenv

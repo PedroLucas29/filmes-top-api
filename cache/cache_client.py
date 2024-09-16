@@ -17,9 +17,9 @@ def init_cache(app):
 # Funções auxiliares de cache assíncronas
 
 
-async def get_cache(key):
+def get_cache(key):
     return cache.get(key)
 
 
-async def set_cache(key, value, timeout=300):
+def set_cache(key, value, timeout=300):
     cache.set(key, value, timeout=timeout)
