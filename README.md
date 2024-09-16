@@ -78,8 +78,8 @@ Algumas das principais rotas são:
       "id": 1,
       "usuario_id": 1,
       "filme_id": 42,
-      "nota": 8.5,
-      "data_aluguel": "2024-09-15T10:45:00Z"
+      "data_locacao": "2024-09-15T10:45:00Z",
+      "nota": 8.5
     }
      ```
     
@@ -98,8 +98,8 @@ Algumas das principais rotas são:
       "id": 1,
       "usuario_id": 1,
       "filme_id": 42,
-      "nota": 9.0,
-      "data_avaliacao": "2024-09-15T10:45:00Z"
+      "data_locacao": "2024-09-15T10:45:00Z",
+      "nota": 9.0
     }
     ```
 
