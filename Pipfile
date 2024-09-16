@@ -11,6 +11,10 @@ flask = {extras = ["async"], version = "*"}
 flask-caching = "*"
 redis = "*"
 sqlalchemy = {extras = ["asyncio"], version = "*"}
+pytest = "*"
+pytest-asyncio = "*"
+aiohttp = "*"
+flask-testing = "*"
 
 [dev-packages]
 

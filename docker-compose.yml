@@ -14,32 +14,10 @@ services:
     volumes:
       - /var/cache/pgdata:/var/lib/postgresql/data
     env_file:
-      - .env  # Adicione esta linha para carregar variáveis de ambiente do .env
+      - .env  
 
   redis:
     container_name: filmes_top_redis
     image: redis:alpine
     ports:
       - '6379:6379'
-
-
-# version: '3.1'
-
-# services:
-#     postgresql:
-#         image: postgres
-#         restart: always
-#         container_name: filmes_top_pg
-#         ports:
-#             - 5432:5432
-#         environment:
-#             POSTGRES_PASSWORD: "$PG_PASS"
-#             POSTGRES_USER: "$PG_USER"
-#             POSTGRES_DB: "$PG_DB"
-#         volumes:
-#             - /var/cache/pgdata:/var/lib/postgresql/data
-#     redis:
-#         container_name: filmes_top_redis
-#         image: redis:alpine
-#         ports:
-#             - '6379:6379'

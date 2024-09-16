@@ -8,7 +8,6 @@ filmes_controller = Blueprint('filmes', __name__)
 @filmes_controller.route('/filmes/genero/<genero>', methods=['GET'])
 async def get(genero):
     key = f'getFilmes:{genero}'
-    print("**CACHE", cache)
     cache_existent = get_cache(key)
     if cache_existent:
         return cache_existent
@@ -22,7 +21,7 @@ async def get(genero):
 @filmes_controller.route('/filmes/<int:id>', methods=['GET'])
 async def get_by_id(id):
     repository = filme_repository_factory()
-    filme = await repository.buscar_filme(id)
+    filme = await repository.buscar_filme_por_id(id)
     if filme is None:
         return {"error": "Filme não encontrado"}, 404
     filme_json = jsonify(filme)
@@ -32,7 +31,6 @@ async def get_by_id(id):
 @filmes_controller.route('/filmes', methods=['GET'])
 async def get_all():
     key = 'getFilmes'
-    print("**CACHE", cache)
     cache_existent = get_cache(key)
     if cache_existent:
         return cache_existent
@@ -58,7 +56,7 @@ async def get_alugueis(usuario_id: int):
     return jsonify(alugueis)
 
 
-@filmes_controller.route('filmes/alugueis/<int:aluguel_id>/nota', methods=['post'])
+@filmes_controller.route('filmes/alugueis/<int:aluguel_id>/nota', methods=['patch'])
 async def rate_aluguel(aluguel_id):
     repository = filme_repository_factory()
     data = request.get_json()

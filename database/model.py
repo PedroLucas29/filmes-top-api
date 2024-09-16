@@ -23,8 +23,7 @@ class Filme(db.Model):
     ano = Column(Integer, nullable=False)
     sinopse = Column(String(500), nullable=True)
     diretor = Column(String(120), nullable=True)
-    nota_final = Column(Float, default=0)  # Nota média dos filmes
-    # Total de avaliações recebidas
+    nota_final = Column(Float, default=0)
     total_avaliacoes = Column(Integer, default=0)
     alugueis = relationship('Aluguel', backref='filme', lazy=True)
 
@@ -35,10 +34,9 @@ class Aluguel(db.Model):
     usuario_id = Column(Integer, ForeignKey('usuarios.id'), nullable=False)
     filme_id = Column(Integer, ForeignKey('filmes.id'), nullable=False)
     data_locacao = Column(DateTime, default=datetime.utcnow)
-    nota = Column(Integer)  # Avaliação de 0 a 10
+    nota = Column(Integer)
 
     def avaliar(self, nova_nota):
-        # Atualiza a nota final do filme e o total de avaliações
         self.nota = nova_nota
         filme = self.filme
         filme.total_avaliacoes += 1
