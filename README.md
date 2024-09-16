@@ -60,7 +60,7 @@ Algumas das principais rotas são:
         "sinopse": "Descrição do Filme A",
         "diretor": "Diretor A"
         
-      },
+      }
      ```
     
 - **POST /alugueis**: Aluga um filme.
@@ -71,8 +71,9 @@ Algumas das principais rotas são:
       "filme_id": 42,
       "nota": 8.5
     }
-    
+     ```
   - **Resposta Exemplo:**
+  - ```json
     {
       "id": 1,
       "usuario_id": 1,
@@ -90,9 +91,9 @@ Algumas das principais rotas são:
       "filme_id": 42,
       "nota": 9.0
     }
-    
+     ```
   - **Resposta Exemplo:**
-    
+    ```json
     {
       "id": 1,
       "usuario_id": 1,
