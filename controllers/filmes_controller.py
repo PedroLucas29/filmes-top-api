@@ -66,4 +66,4 @@ async def rate_aluguel(aluguel_id):
     alugueis = await repository.inserir_nota(aluguel_id, nota_int)
     if alugueis is None:
         return {"error": "Aluguel não encontrado"}, 404
-    return {}, 204
+    return alugueis, 200
